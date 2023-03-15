@@ -32,91 +32,36 @@ $(document).ready(function () {
     $('#add-to-cal').html(myCalendar);
 
 
-    $('#rsvp_yes').on('submit', function (e) {
+
+
+
+    /********************** RSVP **********************/
+    $('#rsvp-form').on('submit', function (e) {
         e.preventDefault();
         var data = $(this).serialize();
 
-        $('#alert-wrapper-yes').html(alert_markup('info', '<strong>O secunda!</strong> Salvăm detaliile.'));
+        $('#alert-wrapper').html(alert_markup('info', '<strong>O secunda!</strong> Salvăm detaliile.'));
 
         if (MD5($('#invite_code_yes').val()) !== '466448384cc7421e8a48d629a2280a87'
-            && MD5($('#invite_code_yes').val()) !== '81dc9bdb52d04dc20036dbd8313ed055') {
-            $('#alert-wrapper-yes').html(alert_markup('danger', '<strong>Scuze!</strong> Codul de invitație nu este corect.'));
+            && MD5($('#invite_code_yes').val()) !== 'c7558e9d1f956b016d1fdba7ea132378') {
+            $('#alert-wrapper').html(alert_markup('danger', '<strong>Scuze!</strong> Codul de invitație nu este corect.'));
         } else {
             $.post('https://script.google.com/macros/s/AKfycbxLNBcpJiP_78L5QNXZhdextGJaQQ0l-nT06YgntOeCexqmiOG6rfCnWDPnkIYcOpIk_g/exec', data)
                 .done(function (data) {
                     console.log(data);
                     if (data.result === "error") {
-                        $('#alert-wrapper-yes').html(alert_markup('danger', data.message));
+                        $('#alert-wrapper').html(alert_markup('danger', data.message));
                     } else {
-                        $('#alert-wrapper-yes').html('');
-                        $('#rsvp-modal-yes').modal('show');
+                        $('#alert-wrapper').html('');
+                        $('#rsvp-modal').modal('show');
                     }
                 })
                 .fail(function (data) {
                     console.log(data);
-                    $('#alert-wrapper-yes').html(alert_markup('danger', '<strong>Scuze!</strong> Avem o problemă cu serverul.'));
+                    $('#alert-wrapper').html(alert_markup('danger', '<strong>Scuze!</strong> Avem o problemă cu serverul.'));
                 });
         }
     });
-
-
-    $('#rsvp_maybe').on('submit', function (e) {
-        e.preventDefault();
-        var data = $(this).serialize();
-
-        $('#alert-wrapper-maybe').html(alert_markup('info', '<strong>O secunda!</strong> Salvăm detaliile.'));
-
-        if (MD5($('#invite_code_maybe').val()) !== '466448384cc7421e8a48d629a2280a87'
-            && MD5($('#invite_code_maybe').val()) !== 'c7558e9d1f956b016d1fdba7ea132378') {
-            $('#alert-wrapper-maybe').html(alert_markup('danger', '<strong>Scuze!</strong> Codul de invitație nu este corect.'));
-        } else {
-            $.post('https://script.google.com/macros/s/AKfycbzmtV7kmO6q6txK36DHH2zC1MBWEImV5mQISSqmcdNLbzuI0N4sY7mYRDH9FtetouMwWA/exec', data)
-                .done(function (data) {
-                    console.log(data);
-                    if (data.result === "error") {
-                        $('#alert-wrapper-maybe').html(alert_markup('danger', data.message));
-                    } else {
-                        $('#alert-wrapper-maybe').html('');
-                        $('#rsvp-modal-maybe').modal('show');
-                    }
-                })
-                .fail(function (data) {
-                    console.log(data);
-                    $('#alert-wrapper-maybe').html(alert_markup('danger', '<strong>Scuze!</strong> Avem o problemă cu serverul.'));
-                });
-        }
-    });
-
-
-
-    $('#rsvp_no').on('submit', function (e) {
-        e.preventDefault();
-        var data = $(this).serialize();
-
-        $('#alert-wrapper-no').html(alert_markup('info', '<strong>O secunda!</strong> Salvăm detaliile.'));
-
-        if (MD5($('#invite_code_no').val()) !== '466448384cc7421e8a48d629a2280a87'
-            && MD5($('#invite_code_no').val()) !== '81dc9bdb52d04dc20036dbd8313ed055') {
-            $('#alert-wrapper-no').html(alert_markup('danger', '<strong>Scuze!</strong> Codul de invitație nu este corect.'));
-        } else {
-            $.post('https://script.google.com/macros/s/AKfycbzuvUdn86LByR7BmvLI1tfsdgEdooPzuK9g5sV1mtXx6fBmK8Q_pjwHqWsd-XDqngIi/exec', data)
-                .done(function (data) {
-                    console.log(data);
-                    if (data.result === "error") {
-                        $('#alert-wrapper-no').html(alert_markup('danger', data.message));
-                    } else {
-                        $('#alert-wrapper-no').html('');
-                        $('#rsvp-modal-no').modal('show');
-                    }
-                })
-                .fail(function (data) {
-                    console.log(data);
-                    $('#alert-wrapper-no').html(alert_markup('danger', '<strong>Scuze!</strong> Avem o problemă cu serverul.'));
-                });
-        }
-    });
-
-
 
 });
 
@@ -346,54 +291,3 @@ var MD5 = function (string) {
 
     return temp.toLowerCase();
 };
-
-/*****************
- *
- *
- */
-const form_yes =document.getElementById('rsvp_yes');
-const form_maybe =document.getElementById('rsvp_maybe');
-const form_no =document.getElementById('rsvp_no');
-
-const button_yes =document.getElementById('f1');
-const button_maybe =document.getElementById('f2');
-const button_no =document.getElementById('f3');
-
-document.getElementById('rsvp_maybe').style.display = 'none';
-document.getElementById('rsvp_no').style.display = 'none';
-document.getElementById('rsvp_yes').style.display = 'none';
-
-button_maybe.style.backgroundColor = 'dodgerblue';
-button_no.style.backgroundColor = 'dodgerblue';
-button_yes.style.backgroundColor = 'dodgerblue';
-
-document.getElementById('f1').addEventListener('click', () => {
-    form_maybe.style.display = 'none';
-    form_no.style.display = 'none';
-    form_yes.style.display = 'block';
-
-    button_maybe.style.backgroundColor = 'dodgerblue';
-    button_no.style.backgroundColor = 'dodgerblue';
-    button_yes.style.backgroundColor = 'blue';
-
-
-})
-document.getElementById('f2').addEventListener('click', () => {
-    form_yes.style.display = 'none';
-    form_no.style.display = 'none';
-    form_maybe.style.display = 'block';
-
-    button_yes.style.backgroundColor = 'dodgerblue';
-    button_no.style.backgroundColor = 'dodgerblue';
-    button_maybe.style.backgroundColor = 'blue';
-})
-document.getElementById('f3').addEventListener('click', () => {
-    form_maybe.style.display = 'none';
-    form_yes.style.display = 'none';
-    form_no.style.display = 'block';
-
-    button_maybe.style.backgroundColor = 'dodgerblue';
-    button_yes.style.backgroundColor = 'dodgerblue';
-    button_no.style.backgroundColor = 'blue';
-
-})

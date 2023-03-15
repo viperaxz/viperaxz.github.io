@@ -293,13 +293,9 @@
     </div>
 
 
-
     <section class="rsvp text-center" id="rsvp">
 
-
-
-
-        <div id="rsvp-modal-yes" class="modal fade" tabindex="-1" role="dialog">
+        <div id="rsvp-modal" class="modal fade" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-body">
@@ -315,214 +311,81 @@
             </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->
 
-        <div id="rsvp-modal-maybe" class="modal fade" tabindex="-1" role="dialog">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span>
-                        </button>
-                        <div class="section-padding">
-                            <h3>Mulțumim!</h3>
-                            <p>Ne-ar face mare plăcere să fiți alături de noi, in ziua cea mare. </p>
-                            <p>Oricând puteți adăuga un alt răspuns folosind același link.</p>
-                        </div>
-                    </div>
-                </div><!-- /.modal-content -->
-            </div><!-- /.modal-dialog -->
-        </div><!-- /.modal -->
-
-
-        <div id="rsvp-modal-no" class="modal fade" tabindex="-1" role="dialog">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span>
-                        </button>
-                        <div class="section-padding">
-                            <h3>Mulțumim!</h3>
-                            <p>Ne pare rău să auzim asta, dacă vă răzgândiți vă așteptăm!.</p>
-                        </div>
-                    </div>
-                </div><!-- /.modal-content -->
-            </div><!-- /.modal-dialog -->
-        </div><!-- /.modal -->
-
 
         <div class="fh5co-section">
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
                         <h2>Raspunde la invitație</h2>
-                        <h3>Vă rugăm să ne oferiți un răspuns pâna la data de 01.06.2023 </h3>
 
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2 text-center animate-box">
+                        <h2>Vă rugăm să ne oferiți un răspuns pâna la data de 01.06.2023 </h2>
+                        <form id="rsvp-form" class="rsvp-form"
+                              action=""
+                              method="POST">
+                            <div class="row  form-group">
+                                <div class="col-md-6">
 
+                                    <input type="text" name="first_name_yes" id="first_name_yes"
+                                           class="form-control"
+                                           placeholder="Prenume" required>
+                                </div>
+                                <div class="col-md-6">
 
-
-                        <div class="row form-group">
-                            <div class="col-md-4">
-                                <button id="f3" class="btn btn-primary">Nu particip</button>
+                                    <input type="text" name="last_name_yes" id="last_name_yes" class="form-control"
+                                           placeholder="Nume de Familie" required>
+                                </div>
                             </div>
-                            <div class="col-md-4">
-                                <button id="f2" class="btn btn-primary">Nu știu</button>
+                            <div class="row form-group">
+                                <div class="col-md-12">
+
+                                    <input type="number" name="invite_code_yes" id="invite_code_yes"
+                                           class="form-control" min="0"
+                                           placeholder="Codul de invitație"
+                                           required>
+                                </div>
                             </div>
-                            <div class="col-md-4">
-                                <button id="f1" class="btn btn-primary">Particip</button>
+                            <div class="row form-group">
+                                <div class="col-md-12">
+                                    <label for="hotel" style="font-size: large ">Bifați dacă doriți cazare</label>
+                                    <input type="checkbox" name="hotel" id="hotel" class="form-check-input">
+                                </div>
                             </div>
-                        </div>
 
-
-                        <div class="row form-group">
-
-                            <form id="rsvp_yes">
-                                <div class="row  form-group">
-                                    <div class="col-md-6">
-
-                                        <input type="text" name="first_name_yes" id="first_name_yes"
-                                               class="form-control"
-                                               placeholder="Prenume" required>
-                                    </div>
-                                    <div class="col-md-6">
-
-                                        <input type="text" name="last_name_yes" id="last_name_yes" class="form-control"
-                                               placeholder="Nume de Familie" required>
-                                    </div>
+                            <div class="row form-group">
+                                <div class="col-md-12">
+                                    <label for="child" style="font-size: large ">Bifați dacă veniți cu
+                                        copil/copii</label>
+                                    <input type="checkbox" name="child" id="child" class="form-check-input">
                                 </div>
-                                <div class="row form-group">
-                                    <div class="col-md-12">
+                            </div>
 
-                                        <input type="number" name="invite_code_yes" id="invite_code_yes"
-                                               class="form-control" min="0"
-                                               placeholder="Codul de invitație"
-                                               required>
-                                    </div>
+                            <div class="row form-group">
+                                <div class="col-md-12">
+                                    <label for="single" style="font-size: large ">Bifați dacă veniți
+                                        neînsoțit</label>
+                                    <input type="checkbox" name="single" id="single" class="form-check-input">
                                 </div>
-                                <div class="row form-group">
-                                    <div class="col-md-12">
-                                        <label for="hotel" style="font-size: large ">Bifați dacă doriți cazare</label>
-                                        <input type="checkbox" name="hotel" id="hotel" class="form-check-input">
-                                    </div>
-                                </div>
+                            </div>
 
-                                <div class="row form-group">
-                                    <div class="col-md-12">
-                                        <label for="child" style="font-size: large ">Bifați dacă veniți cu
-                                            copil/copii</label>
-                                        <input type="checkbox" name="child" id="child" class="form-check-input">
-                                    </div>
-                                </div>
-
-                                <div class="row form-group">
-                                    <div class="col-md-12">
-                                        <label for="single" style="font-size: large ">Bifați dacă veniți
-                                            neînsoțit</label>
-                                        <input type="checkbox" name="single" id="single" class="form-check-input">
-                                    </div>
-                                </div>
-
-                                <div class="row form-group">
-                                    <div class="col-md-12">
+                            <div class="row form-group">
+                                <div class="col-md-12">
                                         <textarea name="message_yes" id="message_yes" cols="20" rows="3"
                                                   class="form-control"
                                                   placeholder="Opțional, dacă aveți mențiuni"></textarea>
-                                    </div>
                                 </div>
+                            </div>
 
-                                <div class="row">
-                                    <div class="col-md-12" id="alert-wrapper-yes"></div>
-                                </div>
+                            <div class="row">
+                                <div class="col-md-12" id="alert-wrapper"></div>
+                            </div>
 
-                                <div class="form-group">
-                                    <input type="submit" value="Trimite" class="btn btn-primary">
-                                </div>
-
-                            </form>
-
-                            <form id="rsvp_maybe" style="display: none">
-                                <div class="row  form-group">
-                                    <div class="col-md-6">
-
-                                        <input type="text" name="first_name_maybe" id="first_name_maybe"
-                                               class="form-control"
-                                               placeholder="Prenume" required>
-                                    </div>
-                                    <div class="col-md-6">
-
-                                        <input type="text" name="last_name_maybe" id="last_name_maybe"
-                                               class="form-control"
-                                               placeholder="Nume de Familie" required>
-                                    </div>
-                                </div>
-                                <div class="row form-group">
-                                    <div class="col-md-12">
-
-                                        <input type="number" name="invite_code_maybe" id="invite_code_maybe"
-                                               class="form-control" min="0"
-                                               placeholder="Codul de invitație"
-                                               required>
-                                    </div>
-                                </div>
-                                <div class="row form-group">
-                                    <div class="col-md-12">
-                                        <textarea name="message_maybe" id="message_maybe" cols="20" rows="3"
-                                                  class="form-control"
-                                                  placeholder="Opțional, dacă aveți mențiuni"></textarea>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-md-12" id="alert-wrapper-maybe"></div>
-                                </div>
-
-                                <div class="form-group">
-                                    <input type="submit" value="Trimite" class="btn btn-primary">
-                                </div>
-                            </form>
-                            <form id="rsvp_no" style="display: none">
-                                <div class="row  form-group">
-                                    <div class="col-md-6">
-
-                                        <input type="text" name="first_name_no" id="first_name_no"
-                                               class="form-control"
-                                               placeholder="Prenume" required>
-                                    </div>
-                                    <div class="col-md-6">
-
-                                        <input type="text" name="last_name_no" id="last_name_no" class="form-control"
-                                               placeholder="Nume de Familie" required>
-                                    </div>
-                                </div>
-                                <div class="row form-group">
-                                    <div class="col-md-12">
-
-                                        <input type="number" name="invite_code_no" id="invite_code_no"
-                                               class="form-control" min="0"
-                                               placeholder="Codul de invitație"
-                                               required>
-                                    </div>
-                                </div>
-                                <div class="row form-group">
-                                    <div class="col-md-12">
-                                        <textarea name="message_no" id="message_no" cols="20" rows="3"
-                                                  class="form-control"
-                                                  placeholder="Opțional, dacă aveți mențiuni"></textarea>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-md-12" id="alert-wrapper-no"></div>
-                                </div>
-
-                                <div class="form-group">
-                                    <input type="submit" value="Trimite" class="btn btn-primary">
-                                </div>
-                            </form>
-
-                        </div>
-
+                            <div class="form-group">
+                                <input type="submit" value="Trimite" class="btn btn-primary">
+                            </div>
 
                         </form>
                     </div>
