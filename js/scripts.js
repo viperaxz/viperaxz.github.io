@@ -63,10 +63,19 @@ $(document).ready(function () {
         }
     });
 
+
+
+
 });
 
 /********************** Extras **********************/
 
+
+function toggleCheckbox(element)
+{
+   // element.checked = !element.checked;
+    $('#alert-wrapper').html(alert_markup('info', '<strong>In acest caz vă rugăm să ne anunuțați până la data de 15.05.2023!</strong>'));
+}
 
 // alert_markup
 function alert_markup(alert_type, msg) {

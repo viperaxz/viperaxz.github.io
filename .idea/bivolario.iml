@@ -18,5 +18,6 @@
     <orderEntry type="library" name="jquery-easing" level="application" />
     <orderEntry type="library" name="modernizr" level="application" />
     <orderEntry type="library" name="twitter-bootstrap" level="application" />
+    <orderEntry type="library" name="lightgallery" level="application" />
   </component>
 </module>
