@@ -25,7 +25,9 @@ $(document).ready(function () {
             address: 'Pensiunea Sara, B-dul Brailei, DN23, Focșani, Romania',
 
             // Event Description
-            description: "Vă așteptăm cu mare drag!"
+            description: "Vă așteptăm cu mare drag!",
+
+            url: "www.bivolarii.com"
         }
     });
 
