@@ -492,8 +492,8 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 
 #overlay {
-  background-size: cover;
-  background: #ffffff url("../images/cover-resized.jpg") center center ;
+  background-size: 150px Auto;
+  background: #ffffff url("../images/cover-resized.jpg") center top ;
   height: 100%;
   width: 100%;
   position: fixed;
