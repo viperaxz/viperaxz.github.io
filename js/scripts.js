@@ -48,7 +48,7 @@ $(document).ready(function () {
             && MD5($('#invite_code_yes').val()) !== 'c7558e9d1f956b016d1fdba7ea132378') {
             $('#alert-wrapper').html(alert_markup('danger', '<strong>Scuze!</strong> Codul de invitație nu este corect.'));
         } else {
-            $.post('https://script.google.com/macros/s/AKfycbxLNBcpJiP_78L5QNXZhdextGJaQQ0l-nT06YgntOeCexqmiOG6rfCnWDPnkIYcOpIk_g/exec', data)
+            $.post('https://script.google.com/macros/s/AKfycbzSJ7tszGxtflXV46GmqvN97AS1An0tfYq6R3C_M4_6-tWEOKNmJ-IdWZ4-Z16nogUAJQ/exec', data)
                 .done(function (data) {
                     console.log(data);
                     if (data.result === "error") {
